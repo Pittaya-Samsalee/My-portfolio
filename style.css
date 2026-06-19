@@ -5,15 +5,17 @@ body {
     color: #2C3E50;
     font-family: 'DM Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 40px 60px;
+    padding: 30px 60px;
     background-color: transparent;
     position: relative;
+    z-index: 100;
 }
 
 .nav-logo {
@@ -22,6 +24,7 @@ body {
     font-weight: 700 !important; 
     color: #0B3C73 !important; 
     letter-spacing: 2px;
+    margin: 0;
 }
 
 .nav-links {
@@ -40,6 +43,7 @@ body {
     letter-spacing: 1.5px;
     position: relative;
     transition: all 0.3s ease;
+    text-transform: uppercase;
 }
 
 .nav-link::after {
@@ -72,7 +76,7 @@ body {
     color: #0B3C73;
     cursor: pointer;
     padding: 0;
-    z-index: 100;
+    z-index: 101;
 }
 
 main {
@@ -87,78 +91,106 @@ main {
     to { opacity: 1; transform: translateY(0); }
 }
 
-.hero-section {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 70vh;
-    gap: 40px;
+.contact-section {
+    max-width: 700px;
+    margin: 0 auto;
     padding: 40px 0;
 }
 
-.hero-content {
-    flex: 1;
-    max-width: 600px;
-}
-
-.hero-label {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #075AAA;
-    font-weight: 500;
-    margin-bottom: 20px;
-}
-
-.hero-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 5rem;
-    font-weight: 400;
-    color: #0B3C73 !important; 
-    line-height: 0.95;
-    margin: 0 0 25px 0;
-}
-
-.hero-name .last-name {
-    color: #0B3C73 !important; 
-    font-weight: 400;
-}
-
-.hero-tagline {
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    color: #2C3E50;
-    margin-bottom: 25px;
-    text-transform: uppercase;
-}
-
-.hero-desc {
-    font-size: 0.95rem;
-    line-height: 1.7;
-    color: #5A6B7C;
+.contact-info {
+    background-color: #FFFFFF;
+    padding: 30px;
+    border-radius: 12px;
     margin-bottom: 40px;
+    border: 1px solid rgba(11, 60, 115, 0.05);
+    box-shadow: 0 5px 25px rgba(11, 60, 115, 0.02);
 }
 
-.hero-cta {
+.contact-info p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 12px 0;
+    color: #4A4A4A;
+}
+
+.contact-info strong {
+    color: #0B3C73;
+    display: inline-block;
+    width: 100px;
+}
+
+.form-container {
+    background-color: #FFFFFF;
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid rgba(11, 60, 115, 0.05);
+    box-shadow: 0 5px 25px rgba(11, 60, 115, 0.03);
+}
+
+.form-container h2 {
+    margin-top: 0 !important;
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+    font-size: 2rem !important;
+    color: #0B3C73 !important;
+}
+
+.form-group {
     display: flex;
-    gap: 15px;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #2C3E50;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #D1DFEC;
+    border-radius: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    color: #2C3E50;
+    background-color: #FCFBFA;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: #075AAA;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(7, 90, 170, 0.1);
+}
+
+.form-group textarea {
+    height: 150px;
+    resize: vertical;
 }
 
 .btn {
     display: inline-block;
-    padding: 14px 30px;
-    font-size: 0.75rem;
+    padding: 16px 35px; 
+    font-size: 0.8rem; 
     font-weight: 600;
     letter-spacing: 1.5px;
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: 6px; 
     font-family: 'DM Sans', sans-serif;
     transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
 }
 
 .btn:hover {
-    transform: translateY(-3px) !important; 
+    transform: translateY(-4px) !important; 
 }
 
 .btn-primary {
@@ -170,7 +202,7 @@ main {
 .btn-primary:hover {
     background-color: #054482;
     border-color: #054482;
-    box-shadow: 0 8px 20px rgba(7, 90, 170, 0.15) !important;
+    box-shadow: 0 10px 25px rgba(7, 90, 170, 0.2) !important;
 }
 
 .btn-outline {
@@ -184,6 +216,64 @@ main {
     border-color: #075AAA;
 }
 
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 70vh;
+    gap: 60px; 
+    padding: 60px 0; 
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #075AAA;
+    font-weight: 500;
+    margin-bottom: 25px; 
+}
+
+.hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    font-weight: 400;
+    color: #0B3C73 !important; 
+    line-height: 1.0; 
+    margin: 0 0 30px 0;
+}
+
+.hero-name .last-name {
+    color: #0B3C73 !important; 
+    font-weight: 400;
+}
+
+.hero-tagline {
+    font-size: 0.9rem; 
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: #2C3E50;
+    margin-bottom: 30px; 
+    text-transform: uppercase;
+}
+
+.hero-desc {
+    font-size: 1rem; 
+    line-height: 1.8; 
+    color: #5A6B7C;
+    margin-bottom: 50px; 
+}
+
+.hero-cta {
+    display: flex;
+    gap: 20px; 
+}
+
 .hero-visual {
     flex: 1;
     display: flex;
@@ -195,7 +285,7 @@ main {
     width: 380px;
     height: 380px;
     border-radius: 50%;
-    border: 1.5px dashed #075AAA; 
+    border: 2px dashed #075AAA; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -235,45 +325,55 @@ main {
 }
 
 .hero-profile-img:hover {
-    transform: scale(1.05);
+    transform: scale(1.08); 
     cursor: pointer;
+}
+
+main h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem; 
+    color: #1A1A1A;
+    font-weight: 500; 
+    margin-top: 100px; 
+    margin-bottom: 40px; 
+    border-bottom: 1px solid #D4E4F1;
+    padding-bottom: 20px; 
 }
 
 h2 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     color: #1A1A1A;
     font-weight: 400;
-    margin-top: 80px;
-    margin-bottom: 30px;
-    border-bottom: 1px solid #D4E4F1;
-    padding-bottom: 15px;
+    margin-top: 40px;
+    margin-bottom: 20px;
 }
 
 .skills-grid, .goals-grid {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px; 
+    margin-bottom: 60px; 
 }
 
 .skill-card {
-    background-color: #FCFBFA !important;
-    border: 1px solid rgba(11, 60, 115, 0.08) !important;
-    border-left: 6px solid #0B3C73 !important;
+    background-color: #FFFFFF !important; 
+    border: 1px solid rgba(11, 60, 115, 0.05) !important;
+    border-left: 8px solid #0B3C73 !important; 
     border-radius: 12px !important;
-    padding: 24px 32px !important;
-    margin-bottom: 20px !important;
+    padding: 30px 40px !important; 
+    margin: 0 !important;
     text-align: left !important;
-    box-shadow: 0 4px 20px rgba(11, 60, 115, 0.04) !important; 
-    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+    box-shadow: 0 5px 25px rgba(11, 60, 115, 0.03) !important; 
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
                 box-shadow 0.3s ease, 
                 border-left-color 0.3s ease !important;
 }
 
 .skill-card:hover {
-    transform: translateY(-4px) !important;
+    transform: translateY(-6px) !important;
     border-left-color: #075AAA !important;
-    box-shadow: 0 10px 30px rgba(11, 60, 115, 0.08) !important;
+    box-shadow: 0 15px 40px rgba(11, 60, 115, 0.08) !important;
 }
 
 .goal-card {
@@ -292,22 +392,24 @@ h2 {
 }
 
 .timeline-date, .goal-number {
-    font-size: 0.75rem;
+    font-size: 0.8rem; 
     font-weight: 600;
     color: #075AAA;
     letter-spacing: 1px;
 }
 
-.skill-card h3 {
+.skill-card h3, .skill-card h2 { 
     color: #0B3C73 !important;
     font-family: 'Cormorant Garamond', serif !important;
-    font-size: 1.55rem !important;
+    font-size: 1.8rem !important; 
     font-weight: 600 !important;
-    margin-top: 0 !important;
-    margin-bottom: 8px !important;
+    margin-top: 10px !important; 
+    margin-bottom: 10px !important; 
     display: flex !important;
     align-items: center !important;
-    gap: 10px !important;
+    gap: 12px !important; 
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
 }
 
 .goal-card h3 {
@@ -319,17 +421,17 @@ h2 {
 }
 
 .company-name {
-    font-size: 0.85rem;
+    font-size: 0.9rem; 
     font-weight: 500;
     color: #5A6B7C;
-    margin: 0 0 15px 0;
+    margin: 0 0 20px 0; 
 }
 
 .skill-card p {
     color: #4A4A4A !important;
     font-family: 'DM Sans', sans-serif !important;
     font-size: 1.05rem !important;
-    line-height: 1.65 !important;
+    line-height: 1.8 !important; 
     margin: 0 !important;
 }
 
@@ -342,10 +444,14 @@ h2 {
 
 .footer {
     text-align: center;
-    padding: 60px 0;
-    font-size: 0.8rem;
+    padding: 80px 0 60px; 
+    font-size: 0.85rem; 
     color: #91A1B0;
     letter-spacing: 1px;
+}
+
+.footer p {
+    margin: 0 0 10px 0;
 }
 
 .linkedin-link {
@@ -359,15 +465,26 @@ h2 {
     color: #0B3C73 !important;
 }
 
+@media (max-width: 992px) {
+    .navbar {
+        padding: 30px 40px;
+    }
+    main {
+        padding: 0 40px;
+    }
+    .hero-name {
+        font-size: 4rem;
+    }
+}
+
 @media (max-width: 768px) {
     .navbar {
-        flex-direction: row; 
         padding: 20px;
-        justify-content: space-between;
+        position: static;
     }
 
     .nav-logo {
-        font-size: 2.5rem !important;
+        font-size: 2.8rem !important;
         margin-bottom: 0;
     }
 
@@ -376,12 +493,12 @@ h2 {
         flex-direction: column;
         width: 100%;
         position: absolute;
-        top: 90px;
+        top: 80px;
         left: 0;
         background-color: #F4F7F9;
-        padding: 20px;
-        box-shadow: 0 10px 20px rgba(7, 90, 170, 0.05);
-        gap: 15px;
+        padding: 30px 20px;
+        box-shadow: 0 15px 30px rgba(7, 90, 170, 0.08);
+        gap: 20px;
         z-index: 99;
     }
 
@@ -397,8 +514,8 @@ h2 {
         flex-direction: column-reverse; 
         text-align: center;
         min-height: auto;
-        padding: 20px 0;
-        gap: 30px;
+        padding: 40px 0;
+        gap: 40px;
     }
 
     main {
@@ -416,7 +533,7 @@ h2 {
     .hero-cta {
         justify-content: center;
         flex-direction: column; 
-        gap: 10px;
+        gap: 15px;
     }
 
     .btn {
@@ -430,12 +547,20 @@ h2 {
     }
 
     .hero-circle-outer {
-        width: 290px; 
-        height: 290px;
+        width: 320px; 
+        height: 320px;
     }
 
     .hero-circle {
-        width: 260px;
-        height: 260px;
+        width: 290px;
+        height: 290px;
+    }
+    
+    .contact-section {
+        padding: 20px 0;
+    }
+    
+    .form-container {
+        padding: 25px 20px;
     }
 }
