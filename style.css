@@ -1,6 +1,3 @@
-/* ==========================================================================
-   1. BASE STYLES & CORE THEME (Warm Minimal + Luxury Navy)
-   ========================================================================== */
 body {
     background-color: #F4F7F9;
     margin: 0;
@@ -10,9 +7,6 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* ==========================================================================
-   2. NAVIGATION BAR (NAV BAR)
-   ========================================================================== */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -81,9 +75,6 @@ body {
     z-index: 100;
 }
 
-/* ==========================================================================
-   3. MAIN STRUCTURE
-   ========================================================================== */
 main {
     max-width: 1200px;
     margin: 0 auto;
@@ -96,9 +87,6 @@ main {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* ==========================================================================
-   4. HERO SECTION
-   ========================================================================== */
 .hero-section {
     display: flex;
     align-items: center;
@@ -196,9 +184,6 @@ main {
     border-color: #075AAA;
 }
 
-/* ==========================================================================
-   5. INTERACTIVE PROFILE VISUALS & ROTATING ANIMATION
-   ========================================================================== */
 .hero-visual {
     flex: 1;
     display: flex;
@@ -215,7 +200,6 @@ main {
     justify-content: center;
     align-items: center;
     position: relative;
-    /* สั่งให้กรอบประด้านนอกหมุนไปทางขวา 25 วินาที */
     animation: luxuryRotate 25s linear infinite; 
 }
 
@@ -234,7 +218,6 @@ main {
     align-items: center;
     overflow: hidden; 
     box-shadow: inset 0 0 20px rgba(255,255,255,0.6);
-    /* สั่งหมุนสวนทางกลับไปทางซ้าย 25 วินาทีเท่ากัน เพื่อบล็อกให้รูปภาพตั้งตรงนิ่งสนิท 100% */
     animation: counterRotate 25s linear infinite !important; 
 }
 
@@ -256,9 +239,6 @@ main {
     cursor: pointer;
 }
 
-/* ==========================================================================
-   6. CONTENT CARDS (TIMELINE / SKILLS / GOALS)
-   ========================================================================== */
 h2 {
     font-family: 'Cormorant Garamond', serif;
     font-size: 2.2rem;
@@ -276,7 +256,27 @@ h2 {
     gap: 20px;
 }
 
-.skill-card, .goal-card {
+.skill-card {
+    background-color: #FCFBFA !important;
+    border: 1px solid rgba(11, 60, 115, 0.08) !important;
+    border-left: 6px solid #0B3C73 !important;
+    border-radius: 12px !important;
+    padding: 24px 32px !important;
+    margin-bottom: 20px !important;
+    text-align: left !important;
+    box-shadow: 0 4px 20px rgba(11, 60, 115, 0.04) !important; 
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                box-shadow 0.3s ease, 
+                border-left-color 0.3s ease !important;
+}
+
+.skill-card:hover {
+    transform: translateY(-4px) !important;
+    border-left-color: #075AAA !important;
+    box-shadow: 0 10px 30px rgba(11, 60, 115, 0.08) !important;
+}
+
+.goal-card {
     background-color: #FFFFFF;
     padding: 30px;
     border-radius: 8px;
@@ -285,7 +285,7 @@ h2 {
     transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
 }
 
-.skill-card:hover, .goal-card:hover {
+.goal-card:hover {
     transform: translateY(-5px) !important; 
     box-shadow: 0 10px 25px rgba(7, 90, 170, 0.05) !important;
     border-color: #075AAA;
@@ -298,7 +298,19 @@ h2 {
     letter-spacing: 1px;
 }
 
-.skill-card h3, .goal-card h3 {
+.skill-card h3 {
+    color: #0B3C73 !important;
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 1.55rem !important;
+    font-weight: 600 !important;
+    margin-top: 0 !important;
+    margin-bottom: 8px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+.goal-card h3 {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.5rem;
     font-weight: 500;
@@ -313,16 +325,21 @@ h2 {
     margin: 0 0 15px 0;
 }
 
-.skill-card p, .goal-card p {
+.skill-card p {
+    color: #4A4A4A !important;
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 1.05rem !important;
+    line-height: 1.65 !important;
+    margin: 0 !important;
+}
+
+.goal-card p {
     font-size: 0.9rem;
     line-height: 1.6;
     color: #666666;
     margin: 0;
 }
 
-/* ==========================================================================
-   7. FOOTER STYLES
-   ========================================================================== */
 .footer {
     text-align: center;
     padding: 60px 0;
@@ -342,9 +359,6 @@ h2 {
     color: #0B3C73 !important;
 }
 
-/* ==========================================================================
-   8. MOBILE RESPONSIVE STYLES
-   ========================================================================== */
 @media (max-width: 768px) {
     .navbar {
         flex-direction: row; 
