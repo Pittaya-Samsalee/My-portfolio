@@ -564,3 +564,32 @@ h2 {
         padding: 25px 20px;
     }
 }
+/* ===== SECTION REVEAL ANIMATION ===== */
+.skills-section,
+.goals-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.skills-section.visible,
+.goals-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== SECTION TITLE LINE ===== */
+.skills-section h2::after,
+.goals-section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background-color: #075AAA;
+    margin-top: 16px;
+}
+
+/* ===== BACKGROUND DIFFERENCE ===== */
+.goals-section {
+    background-color: #FFFFFF;
+}

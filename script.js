@@ -1,87 +1,94 @@
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // ==========================================================================
-    // 📱 0. MOBILE HAMBURGER MENU SYSTEM
-    // ==========================================================================
+document.addEventListener('DOMContentLoaded', () => {
+
+    // 1. Counter Logic
+    const counters = document.querySelectorAll('.count-num');
+
+    counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        if (!target || isNaN(target)) return;
+
+        const duration = 2000;
+        const stepTime = 20;
+        const steps = duration / stepTime;
+        const increment = target / steps;
+
+        let current = 0;
+        let stepCount = 0;
+
+        const timer = setInterval(() => {
+            stepCount++;
+            current += increment;
+
+            if (stepCount >= steps) {
+                clearInterval(timer);
+                counter.innerText = target;
+            } else {
+                counter.innerText = Math.floor(current);
+            }
+        }, stepTime);
+    });
+
+
+    // 2. Form Validation Logic
+    const contactForm = document.getElementById('contactForm');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const nameInput = document.getElementById('nameInput');
+            const emailInput = document.getElementById('emailInput');
+            const messageInput = document.getElementById('messageInput');
+
+            const nameValue = nameInput ? nameInput.value.trim() : '';
+            const emailValue = emailInput ? emailInput.value.trim() : '';
+            const messageValue = messageInput ? messageInput.value.trim() : '';
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (nameValue === "" || emailValue === "" || messageValue === "") {
+                alert("Please enter your name.\nPlease enter your email address.\nPlease write your message.");
+                return;
+            }
+
+            if (!emailPattern.test(emailValue)) {
+                alert("Please enter a valid email address.");
+                return;
+            }
+
+            localStorage.setItem('lastMessage', nameValue);
+            alert("Message sent successfully!");
+            contactForm.reset();
+        });
+    }
+
+
+    // 3. Hamburger Menu
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.querySelector('.nav-links');
 
     if (hamburger && navLinks) {
-        hamburger.addEventListener('click', function() {
+        hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
     }
 
-    // ==========================================================================
-    // 📊 1. ANIMATED COUNTER SYSTEM (C.E. Years & Goal Numbers)
-    // ==========================================================================
-    const counters = document.querySelectorAll('.count-num');
-    
-    counters.forEach(counter => {
-        const updateCount = () => {
-            const target = +counter.getAttribute('data-target');
-            const count = +counter.innerText;
-            
-            const speed = target > 100 ? 150 : 5; 
-            const increment = Math.ceil(target / speed);
-            
-            if (count < target) {
-                counter.innerText = count + increment;
-                setTimeout(updateCount, 15); 
-            } else {
-                if (target < 10) {
-                    counter.innerText = '0' + target;
-                } else {
-                    counter.innerText = target;
-                }
-            }
-        };
-        
-        updateCount();
-    });
 
-    // ==========================================================================
-    // ✉️ 2. CLIENT-SIDE FORM VALIDATION SYSTEM & LOCAL STORAGE
-    // ==========================================================================
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(event) {
-            const nameInput = document.getElementById('name');
-            const emailInput = document.getElementById('email');
-            const messageInput = document.getElementById('message');
-            
-            let isValid = true;
-            let errorMessage = "";
+    // 4. Section Reveal Animation
+    const revealSections = document.querySelectorAll('.skills-section, .goals-section');
 
-            if (nameInput && nameInput.value.trim() === "") {
-                isValid = false;
-                errorMessage += "Please enter your name.\n";
-            }
-
-            if (emailInput) {
-                const emailValue = emailInput.value.trim();
-                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (emailValue === "") {
-                    isValid = false;
-                    errorMessage += "Please enter your email address.\n";
-                } else if (!emailPattern.test(emailValue)) {
-                    isValid = false;
-                    errorMessage += "Please enter a valid email address.\n";
-                }
-            }
-
-            if (messageInput && messageInput.value.trim() === "") {
-                isValid = false;
-                errorMessage += "Please write your message.";
-            }
-
-            if (!isValid) {
-                event.preventDefault();
-                alert(errorMessage);
-            } else {
-                localStorage.setItem('lastMessage', nameInput.value);
-                alert("Thank you, " + nameInput.value + "! Your message has been sent successfully.");
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
             }
         });
-    }
+    }, {
+        threshold: 0.15
+    });
+
+    revealSections.forEach(section => {
+        revealObserver.observe(section);
+    });
+
 });
