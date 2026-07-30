@@ -1,6 +1,5 @@
 // ====================================================================
 // SECURE WEB APPLICATION — BACKEND SERVER
-// Student ID: 12700064
 //
 // Stack: Express + Node built-in `node:sqlite` + Node built-in `crypto`
 // (PBKDF2 password hashing, RFC 6238 TOTP for MFA).
