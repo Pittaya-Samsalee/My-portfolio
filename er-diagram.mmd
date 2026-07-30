@@ -1,0 +1,41 @@
+erDiagram
+    USERS ||--o{ MESSAGES : "sends (optional)"
+    USERS ||--o{ PASSWORD_RESET_TOKENS : "requests"
+
+    USERS {
+        INTEGER id PK
+        TEXT username UK "NOT NULL"
+        TEXT email UK "NOT NULL"
+        TEXT password_hash "PBKDF2 hash, NOT NULL"
+        TEXT mfa_secret "base32 TOTP secret, nullable"
+        INTEGER mfa_enabled "0 or 1, default 0"
+        TEXT role "user or admin, default user"
+        TEXT created_at
+        TEXT last_login_at
+    }
+
+    MESSAGES {
+        INTEGER id PK
+        INTEGER user_id FK "nullable, ON DELETE SET NULL"
+        TEXT sender_name "NOT NULL"
+        TEXT sender_email "NOT NULL"
+        TEXT message_text "NOT NULL"
+        TEXT submitted_at
+    }
+
+    PASSWORD_RESET_TOKENS {
+        INTEGER id PK
+        INTEGER user_id FK "ON DELETE CASCADE"
+        TEXT token_hash UK "SHA-256 hash of raw token"
+        TEXT expires_at
+        INTEGER used "0 or 1, default 0"
+        TEXT created_at
+    }
+
+    LOGIN_AUDIT {
+        INTEGER id PK
+        TEXT email_attempted
+        INTEGER success "0 or 1"
+        TEXT ip_address
+        TEXT attempted_at
+    }

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard — Pittaya Samsalee</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-logo">PS</div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">HOME</a></li>
+      <li><a href="projects.html" class="nav-link">EXPERIENCE</a></li>
+      <li><a href="contact.html" class="nav-link">CONTACT</a></li>
+      <li><a href="mfa-setup.html" class="nav-link">SECURITY</a></li>
+      <li><a href="#" class="nav-link" id="logoutLink">LOGOUT</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger">&#9776;</button>
+  </nav>
+
+  <main>
+    <section class="skills-section">
+      <h1>Admin Dashboard — Contact Messages</h1>
+      <p id="adminGate" style="color:#B00020;"></p>
+
+      <div id="dashboardContent" style="display:none;">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Message</th>
+              <th>Submitted</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="messagesTableBody">
+            <!-- rows injected by admin.js -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Edit modal (simple inline panel, no external framework) -->
+      <div id="editPanel" class="edit-panel" style="display:none;">
+        <div class="edit-panel-inner">
+          <h2>Edit Message</h2>
+          <div class="form-group">
+            <label for="editName">NAME</label>
+            <input type="text" id="editName">
+          </div>
+          <div class="form-group">
+            <label for="editEmail">EMAIL</label>
+            <input type="email" id="editEmail">
+          </div>
+          <div class="form-group">
+            <label for="editMessage">MESSAGE</label>
+            <textarea id="editMessage"></textarea>
+          </div>
+          <div id="editError" style="color:#B00020; font-size:0.85rem; display:none;"></div>
+          <div style="display:flex; gap:10px;">
+            <button id="saveEditBtn" class="btn btn-primary">SAVE (UPDATE)</button>
+            <button id="cancelEditBtn" class="btn btn-outline">CANCEL</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 Pittaya Samsalee. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

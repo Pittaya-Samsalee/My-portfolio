@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register — Pittaya Samsalee</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-logo">PS</div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">HOME</a></li>
+      <li><a href="projects.html" class="nav-link">EXPERIENCE</a></li>
+      <li><a href="contact.html" class="nav-link">CONTACT</a></li>
+      <li><a href="login.html" class="nav-link active" id="navAuthLink">LOGIN</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger">&#9776;</button>
+  </nav>
+
+  <main>
+    <section class="contact-section">
+      <h1>Create Account</h1>
+
+      <div class="form-container">
+        <h2>Register</h2>
+        <form id="registerForm">
+          <div class="form-group">
+            <label for="usernameInput">USERNAME</label>
+            <input type="text" id="usernameInput" placeholder="Choose a username" required>
+          </div>
+          <div class="form-group">
+            <label for="emailInput">EMAIL ADDRESS</label>
+            <input type="email" id="emailInput" placeholder="you@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="passwordInput">PASSWORD</label>
+            <input type="password" id="passwordInput" placeholder="Min. 9 characters, mixed case, number, symbol" required>
+            <small style="color:#5A6B7C;">Must be 9+ characters and include upper, lower, number and a symbol.</small>
+          </div>
+          <div id="formError" style="color:#B00020; font-size:0.85rem; display:none;"></div>
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">CREATE ACCOUNT</button>
+        </form>
+        <p style="margin-top:20px; font-size:0.9rem;">Already have an account? <a href="login.html">Log in</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 Pittaya Samsalee. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="nav-auth.js"></script>
+  <script src="auth-forms.js"></script>
+</body>
+</html>

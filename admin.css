@@ -1,0 +1,78 @@
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #FFFFFF;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(11, 60, 115, 0.03);
+    margin-bottom: 60px;
+}
+
+.admin-table th, .admin-table td {
+    text-align: left;
+    padding: 14px 16px;
+    border-bottom: 1px solid #EBF3F9;
+    font-size: 0.9rem;
+    color: #2C3E50;
+    vertical-align: top;
+}
+
+.admin-table th {
+    background-color: #0B3C73;
+    color: #FFFFFF;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.admin-table tr:hover {
+    background-color: #F4F7F9;
+}
+
+.admin-table .msg-cell {
+    max-width: 300px;
+    word-break: break-word;
+}
+
+.btn-sm {
+    padding: 8px 14px;
+    font-size: 0.7rem;
+    margin-right: 6px;
+}
+
+.btn-danger {
+    background-color: #B00020;
+    color: #FFFFFF !important;
+    border: 1px solid #B00020;
+}
+.btn-danger:hover {
+    background-color: #8a0019;
+}
+
+.edit-panel {
+    position: fixed;
+    inset: 0;
+    background: rgba(11, 60, 115, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+}
+
+.edit-panel-inner {
+    background: #FFFFFF;
+    padding: 35px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 480px;
+}
+
+.edit-panel-inner textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #D1DFEC;
+    border-radius: 6px;
+    font-family: 'DM Sans', sans-serif;
+    height: 100px;
+    box-sizing: border-box;
+}

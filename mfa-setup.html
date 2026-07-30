@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MFA Setup — Pittaya Samsalee</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-logo">PS</div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">HOME</a></li>
+      <li><a href="projects.html" class="nav-link">EXPERIENCE</a></li>
+      <li><a href="contact.html" class="nav-link">CONTACT</a></li>
+      <li><a href="admin.html" class="nav-link">ADMIN</a></li>
+      <li><a href="#" class="nav-link" id="logoutLink">LOGOUT</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger">&#9776;</button>
+  </nav>
+
+  <main>
+    <section class="contact-section">
+      <h1>Multi-Factor Authentication</h1>
+
+      <div class="form-container">
+        <h2>Account Security</h2>
+        <p id="mfaStatus" style="color:#5A6B7C;">Checking current MFA status…</p>
+
+        <div id="setupBlock" style="display:none;">
+          <p style="font-size:0.9rem; color:#4A4A4A;">
+            Scan this QR code with an authenticator app (Google Authenticator, Authy, Microsoft
+            Authenticator), or enter the secret manually, then type the 6-digit code it shows to confirm.
+          </p>
+          <div id="qrcode" style="margin: 20px 0; display:flex; justify-content:center;"></div>
+          <p style="font-size:0.8rem; word-break:break-all;"><strong>Manual entry secret:</strong> <span id="secretText"></span></p>
+
+          <div class="form-group">
+            <label for="confirmCodeInput">ENTER 6-DIGIT CODE TO CONFIRM</label>
+            <input type="text" id="confirmCodeInput" placeholder="123456" inputmode="numeric" maxlength="6">
+          </div>
+          <div id="setupError" style="color:#B00020; font-size:0.85rem; display:none;"></div>
+          <button id="confirmMfaBtn" class="btn btn-primary" style="width:100%;">CONFIRM &amp; ENABLE MFA</button>
+        </div>
+
+        <div id="enabledBlock" style="display:none;">
+          <p style="color:#075AAA; font-weight:600;">✓ MFA is currently ENABLED on your account.</p>
+          <button id="disableMfaBtn" class="btn btn-outline" style="width:100%;">DISABLE MFA</button>
+        </div>
+
+        <button id="startSetupBtn" class="btn btn-primary" style="width:100%; display:none;">SET UP MFA NOW</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 Pittaya Samsalee. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="mfa-setup.js"></script>
+</body>
+</html>

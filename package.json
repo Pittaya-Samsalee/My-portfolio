@@ -1,0 +1,22 @@
+{
+  "name": "secure-portfolio-webapp",
+  "version": "2.0.0",
+  "description": "Secure Web Application and Backend Integration - Assignment",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Pittaya Samsalee",
+  "license": "ISC",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-session": "^1.18.1"
+  }
+}
